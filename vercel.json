@@ -1,66 +1,9 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
-  "buildCommand": "node generate_cv_pdf.js",
-  "outputDirectory": ".",
-  "rewrites": [
-    {
-      "source": "/cv",
-      "destination": "/Ankit_Yadav_CV.pdf"
-    },
-    {
-      "source": "/resume",
-      "destination": "/Ankit_Yadav_CV.pdf"
-    }
+  "builds": [
+    { "src": "**/*", "use": "@vercel/static" }
   ],
-  "headers": [
-    {
-      "source": "/styles.css",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/css; charset=utf-8"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/script.js",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/javascript; charset=utf-8"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/images/(.*)\\.svg",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "image/svg+xml"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/images/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    }
+  "routes": [
+    { "src": "/(.*)", "dest": "/$1" }
   ]
 }
