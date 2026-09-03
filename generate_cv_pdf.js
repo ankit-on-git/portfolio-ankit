@@ -213,13 +213,19 @@ async function run() {
   fs.copyFileSync('Ankit_Yadav_CV.pdf', 'public/Ankit_Yadav_CV.pdf');
   fs.copyFileSync('Ankit_Yadav_CV.pdf', 'public/images/Ankit_Yadav_CV.pdf');
 
-  // Copy all files from images/ into public/images/
+  // Copy all files from images/ into public/images/, plus URL-encoded versions for CDN compatibility
   const files = fs.readdirSync('images');
   for (const file of files) {
     const srcPath = path.join('images', file);
     const destPath = path.join('public', 'images', file);
     if (fs.statSync(srcPath).isFile()) {
       fs.copyFileSync(srcPath, destPath);
+      // If filename has spaces, also save a URI-encoded copy in both images/ and public/images/
+      if (file.includes(' ')) {
+        const encoded = encodeURIComponent(file);
+        fs.copyFileSync(srcPath, path.join('images', encoded));
+        fs.copyFileSync(srcPath, path.join('public', 'images', encoded));
+      }
     }
   }
 
