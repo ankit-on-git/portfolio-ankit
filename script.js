@@ -86,13 +86,14 @@ const PROJECTS = [
   }
 ];
 
-// CERTIFICATES DATA (EXACT CERTIFICATES FROM ORIGINAL REPOSITORY)
+// CERTIFICATES DATA (INCLUDING GOOGLE PROMPT WAR & REPOSITORY CERTIFICATES)
 const CERTIFICATES = [
-  { title: "Times Foundation", issuer: "Times of India (TOI)", image: "images/timesofindia_logo.jpg", url: "https://drive.google.com/file/d/1eWAucKliBeWEFmEFacst5jAA1gZ82jOv/view?usp=sharing" },
+  { title: "Google Prompt War", issuer: "Google · Hack2skill", image: "images/google_logo.svg", url: "https://certificate.hack2skill.com/verify/2026H2S07PWVCHL4-A00857" },
+  { title: "Times Foundation", issuer: "Times of India (TOI)", image: "images/cert-toi.svg", url: "https://drive.google.com/file/d/1eWAucKliBeWEFmEFacst5jAA1gZ82jOv/view?usp=sharing" },
   { title: "Quizoff 2026", issuer: "Unstop", image: "images/cert-quizoff.jpg", url: "https://drive.google.com/file/d/1IMOlLJFMIJ9wWu548H0zxgFLQ9volZ2p/view" },
-  { title: "Infosys Springboard Certificate", issuer: "Infosys", image: "images/cert-infosys.png", url: "https://drive.google.com/file/d/1-ou-RyaQ1I8MIxrEx1PrqD-AgpUQI2R-/view" },
-  { title: "Python", issuer: "HackerRank", image: "images/cert-hackerrank.png", url: "https://www.hackerrank.com/certificates/iframe/0a0cf4c877e8" },
-  { title: "National Hackathon", issuer: "Participation Certificate", image: "images/cert-hackathon.png", url: "https://drive.google.com/file/d/1NphrGo85oVo8HURp_nq7Ncw1nKhhHMrC/view" }
+  { title: "Infosys Springboard", issuer: "Infosys", image: "images/cert-infosys.svg", url: "https://drive.google.com/file/d/1-ou-RyaQ1I8MIxrEx1PrqD-AgpUQI2R-/view" },
+  { title: "Python", issuer: "HackerRank", image: "images/cert-hackerrank.svg", url: "https://www.hackerrank.com/certificates/iframe/0a0cf4c877e8" },
+  { title: "National Hackathon", issuer: "Participation Certificate", image: "images/cert-hackathon.svg", url: "https://drive.google.com/file/d/1NphrGo85oVo8HURp_nq7Ncw1nKhhHMrC/view" }
 ];
 
 // RENDER SKILLS
@@ -164,11 +165,13 @@ if (projectCards) {
 // RENDER CERTIFICATES
 const certCards = document.getElementById("certCards");
 if (certCards) {
-  certCards.innerHTML = CERTIFICATES.map(c => `
-    <a class="cert" href="${c.url}" target="_blank" rel="noopener noreferrer">
-      <div class="cert-img"><img src="${c.image}" alt="${c.issuer} certificate" loading="lazy" /></div>
-      <h3>${c.title}</h3>
-      <p class="issuer">${c.issuer}</p>
+  certCards.innerHTML = CERTIFICATES.map((c, idx) => `
+    <a class="cert" id="certCard-${idx}" href="${c.url}" target="_blank" rel="noopener noreferrer">
+      <div class="cert-img" id="certImg-${idx}">
+        <img src="${c.image}" alt="${c.title} - ${c.issuer}" loading="lazy" onerror="this.onerror=null; this.src='images/cert-quizoff.svg';" />
+      </div>
+      <h3 id="certTitle-${idx}">${c.title}</h3>
+      <p class="issuer" id="certIssuer-${idx}">${c.issuer}</p>
       <span class="view">View Certificate ↗</span>
     </a>
   `).join("");
@@ -256,6 +259,12 @@ function applyTheme(themeId, showToastNotification = false) {
   if (indicator) indicator.style.backgroundColor = theme.color;
   if (mobileLabel) mobileLabel.textContent = theme.name;
   if (mobileIndicator) mobileIndicator.style.backgroundColor = theme.color;
+
+  const themeToggleBtnEl = document.getElementById("themeToggleBtn");
+  if (themeToggleBtnEl) {
+    themeToggleBtnEl.title = `Current Theme: ${theme.name} (Click to switch)`;
+    themeToggleBtnEl.setAttribute("aria-label", `Switch UI Theme (Current: ${theme.name})`);
+  }
 
   window.dispatchEvent(new CustomEvent("themechange", { detail: theme }));
 
@@ -1517,3 +1526,9 @@ if (document.readyState === "loading") {
   }
   animate();
 })();
+
+// ==========================================================================
+// CAREER JOURNEY: VISUAL ROADMAP
+// ==========================================================================
+// Static visual map with direct Onlyfools links rendered in DOM
+
