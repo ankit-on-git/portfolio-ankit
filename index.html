@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ankit Yadav — Developer &amp; Founder Portfolio</title>
+<meta name="description" content="Ankit Yadav — second-year CSE student, developer and founder of onlyfools. Projects, skills, certificates and contact." />
+<meta property="og:title" content="Ankit Yadav — Developer &amp; Founder Portfolio" />
+<meta property="og:description" content="Ankit Yadav — second-year CSE student, developer and founder of onlyfools. Projects, skills, certificates and contact." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+<!-- TOP SCROLL PROGRESS BAR -->
+<div id="scrollProgress"></div>
+
+<!-- AMBIENT INTERACTIVE CONSTELLATION BACKGROUND CANVAS -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- HEADER & NAVIGATION -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-bracket">&lt;</span>ankit.dev<span class="brand-bracket">/&gt;</span>
+    </a>
+    
+    <nav class="nav-capsule" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#stack">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    
+    <div class="nav-actions">
+      <!-- THEME TOGGLE BUTTON -->
+      <button class="btn-theme-pill" id="themeToggleBtn" aria-label="Switch UI Theme" title="Click to change UI theme">
+        <span class="theme-pill-icon">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+          </svg>
+        </span>
+        <span class="theme-pill-label" id="themePillLabel">Violet</span>
+        <span class="theme-color-indicator" id="themeIndicator"></span>
+      </button>
+
+      <a class="btn-cv-pill" id="navCvBtn" href="https://drive.google.com/file/d/1h-gWqULu_gtMT4hB7Ia4_pRNZKElECIq/view" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+        </svg>
+        <span>CV</span>
+      </a>
+      <a class="btn-hire-pill" href="mailto:ankit1424yadav@gmail.com">Hire Me</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation menu">Menu</button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div class="nav-mobile-dropdown" id="mobileMenu">
+    <div class="mobile-theme-row">
+      <button class="btn-theme-pill mobile-theme-btn" id="mobileThemeToggleBtn" aria-label="Switch UI Theme">
+        <span class="theme-pill-icon">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+          </svg>
+        </span>
+        <span class="mobile-theme-text">Theme: <strong id="mobileThemeLabel">Violet</strong></span>
+        <span class="theme-color-indicator" id="mobileThemeIndicator"></span>
+      </button>
+    </div>
+    <a href="#about">About</a>
+    <a href="#stack">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#contact">Contact</a>
+    <a href="https://drive.google.com/file/d/1h-gWqULu_gtMT4hB7Ia4_pRNZKElECIq/view" target="_blank" rel="noopener noreferrer">CV</a>
+  </div>
+</header>
+
+<main id="top">
+  
+  <!-- HERO SECTION -->
+  <section class="hero reveal is-visible">
+    <div class="hero-left">
+      <div>
+        <span class="section-tag">ABOUT ME</span>
+      </div>
+
+      <h1>Hey, I'm <span class="accent-title">Ankit Yadav.</span></h1>
+      
+      <div class="hero-subhead">
+        <span>I build</span> <span id="typewriterText">clean web tools</span><span class="cursor">|</span>
+      </div>
+
+      <p class="hero-lead">
+        Second-year Computer Science undergraduate and founder of 
+        <a href="https://onlyfoolls.blogspot.com/" target="_blank" rel="noopener noreferrer">Onlyfools ↗</a>.
+        Dedicated to software craftsmanship, autonomous agent architectures, rapid prototyping, and interactive web experiences.
+      </p>
+
+      <!-- HERO ACTION BUTTONS -->
+      <div class="hero-btn-row">
+        <a class="btn-explore" href="#projects">
+          <span>Explore My Work</span>
+          <span>↓</span>
+        </a>
+        <a class="btn-pill-dark" id="heroCvBtn" href="https://drive.google.com/file/d/1h-gWqULu_gtMT4hB7Ia4_pRNZKElECIq/view" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+          </svg>
+          <span>CV</span>
+        </a>
+        <a class="btn-pill-dark" href="https://github.com/ankit-on-git" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+        <a class="btn-pill-dark" href="https://www.linkedin.com/in/ankit-2025x" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+
+      <!-- HERO STATS STRIP -->
+      <div class="hero-stats-strip">
+        <span class="stat-tag-pill"><strong>Founder</strong> @ Onlyfools</span>
+        <span class="stat-tag-pill"><strong>8.82</strong> CGPA</span>
+        <span class="stat-tag-pill"><strong>6+</strong> Deployed Projects</span>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN: CIRCULAR PROFILE AVATAR + 3D WORKSTATION -->
+    <div class="hero-visual-col">
+      <div class="avatar-halo-box">
+        <div class="avatar-halo-ring"></div>
+        <div class="avatar-circle-img">
+          <img src="images/profile.png" alt="Ankit - Developer &amp; Founder" id="profileImg" />
+        </div>
+      </div>
+
+      <!-- AVATAR NAME PILL -->
+      <div class="avatar-founder-badge">
+        <span class="green-dot"></span>
+        <span>Ankit Yadav</span>
+      </div>
+
+      <!-- COMPUTER OF CSE STUDENT WITH JS, PYTHON, GITHUB MOTION GRAPHICS -->
+      <div class="cse-computer-container" id="laptopMockup">
+        <!-- MOTION GRAPHICS ORBITAL LOGOS AROUND THE COMPUTER -->
+        <div class="motion-graphics-ambient">
+          <!-- Orbital glowing tracks -->
+          <div class="mg-orbit-ring mg-ring-1"></div>
+          <div class="mg-orbit-ring mg-ring-2"></div>
+
+          <!-- JavaScript (JS) Logo -->
+          <div class="mg-logo-badge mg-badge-js" id="mgLogoJs" title="JavaScript">
+            <div class="mg-badge-glow"></div>
+            <div class="mg-badge-icon js-icon">
+              <span class="js-text">JS</span>
+            </div>
+            <span class="mg-badge-label">JavaScript</span>
+          </div>
+
+          <!-- Python Logo -->
+          <div class="mg-logo-badge mg-badge-python" id="mgLogoPython" title="Python">
+            <div class="mg-badge-glow"></div>
+            <div class="mg-badge-icon python-icon">
+              <svg viewBox="0 0 110 110" width="22" height="22" fill="none">
+                <path d="M54.5 12C38 12 28.5 18.5 28.5 27.5V36h26.5v3.5H20.5C12 39.5 5 46.5 5 57.5c0 10.5 7.5 18 16 18h9v-13c0-9.5 8.5-17.5 18-17.5h27v-9C75 23 68 12 54.5 12zm-8 7.5a4 4 0 110 8 4 4 0 010-8z" fill="#387eb8"/>
+                <path d="M55.5 98C72 98 81.5 91.5 81.5 82.5V74H55v-3.5h34.5C98 70.5 105 63.5 105 52.5c0-10.5-7.5-18-16-18h-9v13c0 9.5-8.5 17.5-18 17.5h-27v9c0 13 7 24 20.5 24zm8-7.5a4 4 0 110-8 4 4 0 010 8z" fill="#ffe873"/>
+              </svg>
+            </div>
+            <span class="mg-badge-label">Python</span>
+          </div>
+
+          <!-- GitHub Logo -->
+          <div class="mg-logo-badge mg-badge-github" id="mgLogoGithub" title="GitHub">
+            <div class="mg-badge-glow"></div>
+            <div class="mg-badge-icon github-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+            </div>
+            <span class="mg-badge-label">GitHub</span>
+          </div>
+
+          <!-- Motion Graphics Floating Code Snippets -->
+          <span class="mg-float-code mg-fc-1">&lt;code&gt;</span>
+          <span class="mg-float-code mg-fc-2">def cse_dev()</span>
+          <span class="mg-float-code mg-fc-3">git commit -m</span>
+        </div>
+
+        <!-- THE 3D CSE STUDENT COMPUTER / LAPTOP -->
+        <div class="cse-computer-chassis" id="cseComputerChassis">
+          <!-- Student Stickers on Top Screen Frame -->
+          <div class="cse-stickers-row">
+            <span class="cse-sticker cse-sticker-lpu">🎓 LPU CSE '29</span>
+            <span class="cse-sticker cse-sticker-onlyfools">⚡ onlyfools</span>
+            <span class="cse-sticker cse-sticker-ai">🤖 AI Dev</span>
+          </div>
+
+          <!-- Laptop Screen Frame -->
+          <div class="cse-screen-frame">
+            <!-- Screen Header / IDE Bar -->
+            <div class="cse-ide-header">
+              <div class="cse-window-dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
+              </div>
+              <div class="cse-tabs-bar">
+                <span class="cse-tab active">
+                  <svg viewBox="0 0 110 110" width="11" height="11" fill="none">
+                    <path d="M54.5 12C38 12 28.5 18.5 28.5 27.5V36h26.5v3.5H20.5C12 39.5 5 46.5 5 57.5c0 10.5 7.5 18 16 18h9v-13c0-9.5 8.5-17.5 18-17.5h27v-9C75 23 68 12 54.5 12zm-8 7.5a4 4 0 110 8 4 4 0 010-8z" fill="#387eb8"/>
+                    <path d="M55.5 98C72 98 81.5 91.5 81.5 82.5V74H55v-3.5h34.5C98 70.5 105 63.5 105 52.5c0-10.5-7.5-18-16-18h-9v13c0 9.5-8.5 17.5-18 17.5h-27v9c0 13 7 24 20.5 24zm8-7.5a4 4 0 110-8 4 4 0 010 8z" fill="#ffe873"/>
+                  </svg>
+                  <span>main.py</span>
+                </span>
+                <span class="cse-tab">
+                  <span class="mini-js">JS</span>
+                  <span>script.js</span>
+                </span>
+                <span class="cse-tab">
+                  <span>>_ bash</span>
+                </span>
+              </div>
+              <div class="cse-ide-status">
+                <span class="status-pulse"></span>
+                <span>CSE · 8.82</span>
+              </div>
+            </div>
+
+            <!-- Screen Code Display -->
+            <div class="cse-screen-code">
+              <div class="code-line"><span class="c-comment"># Ankit Yadav · B.Tech CSE (LPU '29)</span></div>
+              <div class="code-line"><span class="c-keyword">import</span> <span class="c-lib">asyncio</span>, <span class="c-lib">ollama</span></div>
+              <div class="code-line"><span class="c-keyword">from</span> <span class="c-lib">ventures</span> <span class="c-keyword">import</span> <span class="c-func">Founder</span></div>
+              <div class="code-line">&nbsp;</div>
+              <div class="code-line"><span class="c-keyword">class</span> <span class="c-class">StudentDeveloper</span>:</div>
+              <div class="code-line">&nbsp;&nbsp;<span class="c-keyword">def</span> <span class="c-func">__init__</span>(<span class="c-param">self</span>):</div>
+              <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-param">self</span>.project = <span class="c-str">"onlyfools.blogspot.com"</span></div>
+              <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-param">self</span>.stack = [<span class="c-str">"Python"</span>, <span class="c-str">"JavaScript"</span>, <span class="c-str">"AI Agents"</span>]</div>
+              <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-param">self</span>.mission = <span class="c-str">"Build, ship, automate ⚡"</span></div>
+            </div>
+
+            <!-- Integrated Terminal Output -->
+            <div class="cse-terminal-bar">
+              <span class="term-user">ankit@lpu:~$</span>
+              <span class="term-cmd">python3 main.py --run</span>
+              <span class="term-cursor"></span>
+            </div>
+          </div>
+
+          <!-- Laptop Keyboard Deck & Trackpad (Base) -->
+          <div class="cse-keyboard-deck">
+            <div class="cse-deck-hinge"></div>
+            <!-- Keys Grid Rows -->
+            <div class="cse-keys-grid">
+              <div class="key-row"><span class="k"></span><span class="k"></span><span class="k"></span><span class="k"></span><span class="k"></span><span class="k"></span><span class="k"></span><span class="k"></span><span class="k"></span><span class="k"></span><span class="k"></span><span class="k"></span></div>
+              <div class="key-row"><span class="k"></span><span class="k"></span><span class="k"></span><span class="k"></span><span class="k"></span><span class="k"></span><span class="k"></span><span class="k"></span><span class="k"></span><span class="k"></span><span class="k"></span><span class="k"></span></div>
+              <div class="key-row"><span class="k wide"></span><span class="k spacebar"></span><span class="k wide"></span></div>
+            </div>
+            <!-- Glass Trackpad -->
+            <div class="cse-trackpad"></div>
+          </div>
+
+          <!-- Bottom Ambient Reflection Glow -->
+          <div class="cse-ambient-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="reveal">
+    <!-- COMPUTER SCIENCE THEMED 3D ANIMATED BACKGROUND MODEL -->
+    <canvas id="aboutCs3dCanvas" class="about-cs-3d-canvas"></canvas>
+
+    <div class="about-content-wrap">
+      <div class="section-tag">Background &amp; Profile</div>
+      <h2>A bit about me</h2>
+      <div class="about-grid">
+        <div class="body-text">
+          <p>I'm a university student, developer, and founder currently building a startup called <a class="link" href="https://onlyfoolls.blogspot.com/" target="_blank" rel="noopener noreferrer">onlyfools</a>. I like turning small ideas into working products — mostly web apps, tools, and automation.</p>
+          <p style="margin-top: 16px;">Currently pursuing my Computer Science and Engineering degree, focused on full-stack web applications, AI agent integration, and intuitive developer tooling.</p>
+        </div>
+
+        <div class="facts">
+          <div class="fact-card">
+            <dt>Academic Year</dt>
+            <dd>2nd Year</dd>
+          </div>
+          <div class="fact-card">
+            <dt>Discipline</dt>
+            <dd>CSE</dd>
+          </div>
+          <div class="fact-card">
+            <dt>Overall CGPA</dt>
+            <dd><span class="counter-accent" data-target="8.82" id="cgpaCounter">0.00</span></dd>
+          </div>
+          <div class="fact-card">
+            <dt>Role</dt>
+            <dd>Student</dd>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS & TECH STACK -->
+  <section id="stack" class="reveal">
+    <div class="section-tag">Technologies &amp; Frameworks</div>
+    <h2>Core Tech Stack</h2>
+    <p class="muted" style="margin-top: 8px;">Languages, databases, frameworks, and developer toolkits I work with.</p>
+    
+    <div class="skills-filter-row">
+      <button class="filter-btn active" data-filter="all">All Skills</button>
+      <button class="filter-btn" data-filter="languages">Languages</button>
+      <button class="filter-btn" data-filter="web">Web &amp; Cloud</button>
+      <button class="filter-btn" data-filter="databases">Databases</button>
+      <button class="filter-btn" data-filter="tools">Tools &amp; Hardware</button>
+    </div>
+
+    <div class="pills" id="pills"></div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="reveal">
+    <div class="section-tag">Featured Work</div>
+    <h2>Things I've built</h2>
+    <p class="muted" style="margin-top: 8px;">Full-stack tools, automation pipelines, and interactive web applications.</p>
+    <div class="cards" id="projectCards"></div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section id="certificates" class="reveal">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px;">
+      <div>
+        <div class="section-tag">Credentials &amp; Milestones</div>
+        <h2>Learning, certified</h2>
+      </div>
+      <div class="cert-nav-row">
+        <button class="cert-scroll-btn" id="certLeftBtn" aria-label="Scroll left">←</button>
+        <button class="cert-scroll-btn" id="certRightBtn" aria-label="Scroll right">→</button>
+      </div>
+    </div>
+    
+    <div class="cert-row" id="certCards"></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact reveal">
+    <div class="section-tag">Connect &amp; Collaborate</div>
+    <h2>Let's build something</h2>
+    <p class="muted" style="margin-top: 12px; max-width: 540px; margin-left: auto; margin-right: auto;">
+      Open to internships, collaborations, and interesting problems.
+    </p>
+
+    <div class="contact-card">
+      <p class="mono muted" style="font-size: 13px;">Direct Outreach Terminal</p>
+      
+      <div class="copy-email-box" id="copyEmailBtn" title="Click to copy email address">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+        <span>ankit1424yadav@gmail.com</span>
+        <span class="muted" style="font-size: 11px;">[Copy]</span>
+      </div>
+
+      <div class="btn-row" style="justify-content: center; margin-top: 28px;">
+        <a class="btn btn-primary" id="contactCvBtn" href="https://drive.google.com/file/d/1h-gWqULu_gtMT4hB7Ia4_pRNZKElECIq/view" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+          </svg>
+          <span>CV</span>
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/ankit-on-git" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/ankit-2025x" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="btn btn-ghost" href="mailto:ankit1424yadav@gmail.com">Email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- TOAST FOR COPY CONFIRMATION -->
+<div id="toast">
+  <span>✓</span> <span>Email copied to clipboard!</span>
+</div>
+
+<footer>
+  <p class="mono muted">© <span id="year"></span> Ankit Yadav — Built by myself using HTML, CSS, JS</p>
+  <p class="mono muted">Lovely Professional University · CSE '29</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
