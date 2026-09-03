@@ -196,8 +196,46 @@ function createCV(outputPath) {
 
 async function run() {
   await createCV('Ankit_Yadav_CV.pdf');
-  await createCV('images/Ankit_Yadav_CV.pdf');
-  console.log('Successfully generated Ankit_Yadav_CV.pdf in root and images/ !');
+  
+  // Ensure directories exist
+  if (!fs.existsSync('images')) {
+    fs.mkdirSync('images', { recursive: true });
+  }
+  if (!fs.existsSync('public')) {
+    fs.mkdirSync('public', { recursive: true });
+  }
+  if (!fs.existsSync('public/images')) {
+    fs.mkdirSync('public/images', { recursive: true });
+  }
+
+  // Copy CV to all expected locations
+  fs.copyFileSync('Ankit_Yadav_CV.pdf', 'images/Ankit_Yadav_CV.pdf');
+  fs.copyFileSync('Ankit_Yadav_CV.pdf', 'public/Ankit_Yadav_CV.pdf');
+  fs.copyFileSync('Ankit_Yadav_CV.pdf', 'public/images/Ankit_Yadav_CV.pdf');
+
+  // Copy all files from images/ into public/images/
+  const files = fs.readdirSync('images');
+  for (const file of files) {
+    const srcPath = path.join('images', file);
+    const destPath = path.join('public', 'images', file);
+    if (fs.statSync(srcPath).isFile()) {
+      fs.copyFileSync(srcPath, destPath);
+    }
+  }
+
+  // Copy root web files to public
+  const rootFiles = ['index.html', 'styles.css', 'script.js', 'Ankit_Yadav_CV.docx'];
+  for (const f of rootFiles) {
+    if (fs.existsSync(f)) {
+      fs.copyFileSync(f, path.join('public', f));
+    }
+  }
+
+  console.log('Successfully generated Ankit_Yadav_CV.pdf and synchronized public/ assets for Vercel!');
+  process.exit(0);
 }
 
-run();
+run().catch(err => {
+  console.error('Error generating build assets:', err);
+  process.exit(1);
+});

@@ -23,7 +23,8 @@ const PROJECTS = [
     title: "QR Code Generator",
     description: "A fast web utility that generates customizable QR codes in real-time from any text, link, or contact payload.",
     tags: ["JavaScript", "CSS3", "HTML5"],
-    image: "images/Screenshot 2026-08-15 142910.png",
+    image: "/images/screenshot-qrcode.png",
+    fallbackImage: "/images/Screenshot 2026-08-15 142910.png",
     live: "https://qr-code-gen-gules.vercel.app/",
     liveLabel: "Live Demo",
     github: "https://github.com/ankit-on-git/QR-Code-Creater",
@@ -34,7 +35,8 @@ const PROJECTS = [
     title: "Quote Generator",
     description: "Generates inspirational quotes on demand with one-click clipboard copying, smooth transitions, and instant sharing.",
     tags: ["JavaScript", "CSS3", "HTML5"],
-    image: "images/Screenshot 2026-08-16 201947.png",
+    image: "/images/screenshot-quote.png",
+    fallbackImage: "/images/Screenshot 2026-08-16 201947.png",
     live: "https://quote-generator-flame-omega.vercel.app/",
     liveLabel: "Live Demo",
     github: "https://github.com/ankit-on-git/quote-generator",
@@ -45,7 +47,7 @@ const PROJECTS = [
     title: "Password Generator",
     description: "Cryptographically secure random password generator featuring strength indicators, customizable sets, and an access slip download.",
     tags: ["HTML5", "CSS3", "JavaScript", "Python"],
-    image: "images/password-generator.png",
+    image: "/images/password-generator.png",
     live: "https://pass-generator1.vercel.app/",
     liveLabel: "Live Demo",
     github: "https://github.com/ankit-on-git/password-generator",
@@ -56,7 +58,8 @@ const PROJECTS = [
     title: "Modern Calculator",
     description: "Multi-functional scientific and standard calculator with live currency, temperature, area, loan/EMI, and PPP conversion tools in an intuitive drawer UI.",
     tags: ["JavaScript", "CSS3", "HTML5"],
-    image: "images/WhatsApp Image 2026-08-17 at 23.04.20.jpeg",
+    image: "/images/modern-calculator.png",
+    fallbackImage: "/images/calculator-preview.jpg",
     live: "https://modern-calculex.vercel.app/",
     liveLabel: "Live Demo",
     github: "https://github.com/ankit-on-git/Modern-Calculator",
@@ -67,7 +70,7 @@ const PROJECTS = [
     title: "Ultron",
     description: "Personal autonomous AI agent framework built on open-source LLMs running locally via Ollama with Hermes agent integration.",
     tags: ["AI Agent", "Ollama", "Hermes", "Open Source"],
-    image: "images/ultron.jpg",
+    image: "/images/ultron.jpg",
     live: null,
     github: "https://github.com/ankit-on-git/Automation.git",
     githubLabel: "GitHub",
@@ -77,7 +80,7 @@ const PROJECTS = [
     title: "Onlyfools",
     description: "An AI-run news media platform where autonomous multi-agent pipelines research, summarize, draft, and publish news without human intervention.",
     tags: ["AI News", "AI Agents", "Automation", "Media"],
-    image: "images/onlyfools.png",
+    image: "/images/onlyfools.png",
     live: "https://onlyfoolls.blogspot.com/",
     liveLabel: "View Platform",
     github: "https://www.linkedin.com/posts/onlyfools_the-indian-government-temporarily-restricted-activity-7472904365922492416-TBCI",
@@ -88,12 +91,12 @@ const PROJECTS = [
 
 // CERTIFICATES DATA (INCLUDING GOOGLE PROMPT WAR & REPOSITORY CERTIFICATES)
 const CERTIFICATES = [
-  { title: "Google Prompt War", issuer: "Google · Hack2skill", image: "images/google_logo.svg", url: "https://certificate.hack2skill.com/verify/2026H2S07PWVCHL4-A00857" },
-  { title: "Times Foundation", issuer: "Times of India (TOI)", image: "images/cert-toi.svg", url: "https://drive.google.com/file/d/1eWAucKliBeWEFmEFacst5jAA1gZ82jOv/view?usp=sharing" },
-  { title: "Quizoff 2026", issuer: "Unstop", image: "images/cert-quizoff.jpg", url: "https://drive.google.com/file/d/1IMOlLJFMIJ9wWu548H0zxgFLQ9volZ2p/view" },
-  { title: "Infosys Springboard", issuer: "Infosys", image: "images/cert-infosys.svg", url: "https://drive.google.com/file/d/1-ou-RyaQ1I8MIxrEx1PrqD-AgpUQI2R-/view" },
-  { title: "Python", issuer: "HackerRank", image: "images/cert-hackerrank.svg", url: "https://www.hackerrank.com/certificates/iframe/0a0cf4c877e8" },
-  { title: "National Hackathon", issuer: "Participation Certificate", image: "images/cert-hackathon.svg", url: "https://drive.google.com/file/d/1NphrGo85oVo8HURp_nq7Ncw1nKhhHMrC/view" }
+  { title: "Google Prompt War", issuer: "Google · Hack2skill", image: "/images/google_logo.svg", url: "https://certificate.hack2skill.com/verify/2026H2S07PWVCHL4-A00857" },
+  { title: "Times Foundation", issuer: "Times of India (TOI)", image: "/images/cert-toi.svg", url: "https://drive.google.com/file/d/1eWAucKliBeWEFmEFacst5jAA1gZ82jOv/view?usp=sharing" },
+  { title: "Quizoff 2026", issuer: "Unstop", image: "/images/cert-quizoff.jpg", url: "https://drive.google.com/file/d/1IMOlLJFMIJ9wWu548H0zxgFLQ9volZ2p/view" },
+  { title: "Infosys Springboard", issuer: "Infosys", image: "/images/cert-infosys.svg", url: "https://drive.google.com/file/d/1-ou-RyaQ1I8MIxrEx1PrqD-AgpUQI2R-/view" },
+  { title: "Python", issuer: "HackerRank", image: "/images/cert-hackerrank.svg", url: "https://www.hackerrank.com/certificates/iframe/0a0cf4c877e8" },
+  { title: "National Hackathon", issuer: "Participation Certificate", image: "/images/cert-hackathon.svg", url: "https://drive.google.com/file/d/1NphrGo85oVo8HURp_nq7Ncw1nKhhHMrC/view" }
 ];
 
 // RENDER SKILLS
@@ -126,7 +129,7 @@ if (projectCards) {
   projectCards.innerHTML = PROJECTS.map((p, idx) => `
     <article class="card project-tilt-card" data-idx="${idx}">
       <div class="card-img-wrapper">
-        <img src="${p.image}" alt="${p.title} screenshot" loading="lazy" />
+        <img src="${p.image}" alt="${p.title} screenshot" loading="lazy" onerror="if (this.dataset.triedFallback !== '1') { this.dataset.triedFallback = '1'; this.src = '${p.fallbackImage || p.image}'; } else { this.onerror = null; this.src = '/images/password-generator.png'; }" />
         ${p.badge ? `<span class="card-badge">${p.badge}</span>` : ''}
       </div>
       <div class="card-body">
@@ -168,7 +171,7 @@ if (certCards) {
   certCards.innerHTML = CERTIFICATES.map((c, idx) => `
     <a class="cert" id="certCard-${idx}" href="${c.url}" target="_blank" rel="noopener noreferrer">
       <div class="cert-img" id="certImg-${idx}">
-        <img src="${c.image}" alt="${c.title} - ${c.issuer}" loading="lazy" onerror="this.onerror=null; this.src='images/cert-quizoff.svg';" />
+        <img src="${c.image}" alt="${c.title} - ${c.issuer}" loading="lazy" onerror="this.onerror=null; this.src='/images/cert-quizoff.svg';" />
       </div>
       <h3 id="certTitle-${idx}">${c.title}</h3>
       <p class="issuer" id="certIssuer-${idx}">${c.issuer}</p>

@@ -27,7 +27,17 @@ app.get('/script.js', (req, res) => {
   res.sendFile(path.join(__dirname, 'script.js'));
 });
 
-// Serve static assets from the current directory with proper headers
+// Serve static assets from public directory and current directory with proper headers
+app.use(express.static(path.join(__dirname, 'public'), {
+  setHeaders: (res, filePath) => {
+    if (filePath.endsWith('.css')) {
+      res.setHeader('Content-Type', 'text/css; charset=utf-8');
+    } else if (filePath.endsWith('.js')) {
+      res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+    }
+  }
+}));
+
 app.use(express.static(__dirname, {
   setHeaders: (res, filePath) => {
     if (filePath.endsWith('.css')) {
